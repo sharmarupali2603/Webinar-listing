@@ -1,0 +1,69 @@
+<div class="webinar-container container-fluid py-3">
+  <!-- Tabs -->
+  <ul class="nav nav-tabs mb-3">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">For you</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Live</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Upcoming</a>
+    </li>
+  </ul>
+
+  <!-- Live webinars -->
+  <div class="d-flex justify-content-between align-items-center mb-2">
+    <h5 class="section-title">Live webinars</h5>
+    <a href="#" class="view-all">View all</a>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let webinar of liveWebinars">
+      <div class="card webinar-card shadow-sm h-100">
+        <div class="position-relative">
+          <img [src]="webinar.image" class="card-img-top" alt="webinar" />
+          <span class="badge badge-live">Live</span>
+          <span class="badge badge-viewers">{{ webinar.viewers }}+</span>
+        </div>
+        <div class="card-body">
+          <span class="credits">{{ webinar.credits }} Credits</span>
+          <h6 class="card-title">{{ webinar.title }}</h6>
+          <p class="org text-muted">by {{ webinar.org }}</p>
+          <div class="highlights">
+            <small class="text-muted">KEY HIGHLIGHTS</small>
+            <p>{{ webinar.highlights }}</p>
+          </div>
+          <button class="btn btn-dark w-100">Watch now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upcoming webinars -->
+  <div class="d-flex justify-content-between align-items-center mb-2 mt-4">
+    <h5 class="section-title">Upcoming webinars</h5>
+    <a href="#" class="view-all">View all</a>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let webinar of upcomingWebinars">
+      <div class="card webinar-card shadow-sm h-100">
+        <div class="position-relative">
+          <img [src]="webinar.image" class="card-img-top" alt="webinar" />
+        </div>
+        <div class="card-body">
+          <span class="credits">{{ webinar.credits }} Credits</span>
+          <h6 class="card-title">{{ webinar.title }}</h6>
+          <p class="org text-muted">by {{ webinar.org }}</p>
+          <div class="highlights">
+            <small class="text-muted">KEY HIGHLIGHTS</small>
+            <p>{{ webinar.highlights }}</p>
+          </div>
+          <small class="text-muted">Goes live on {{ webinar.date | date:'medium' }}</small>
+          <button class="btn btn-outline-dark w-100 mt-2">Notify me</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
